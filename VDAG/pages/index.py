@@ -1,6 +1,7 @@
 import reflex as rx
 
 from rxconfig import config
+from ..components.board import board
 
 class State(rx.State):
     welcomeTitle: str = f"Welcome to {config.app_name}"
@@ -10,9 +11,10 @@ def index() -> rx.Component:
         rx.color_mode.button(position="top-right"),
         rx.vstack(
             rx.heading(rx.text(State.welcomeTitle), size="2"),
+            board(),
+
             spacing="5",
             justify="start",
             min_height="85vh",
         ),
     )
-
